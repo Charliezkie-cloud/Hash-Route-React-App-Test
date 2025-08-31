@@ -8,8 +8,9 @@ import {
   ThemeProvider,
   createTheme
 } from "flowbite-react";
+import { useState } from "react";
 
-const customTheme = createTheme({
+const navbarTheme = createTheme({
   navbar: {
     root: {
       base: "bg-white px-2 py-5 border-b border-gray-200 sm:px-4 dark:border-gray-700 dark:bg-gray-800"
@@ -29,8 +30,10 @@ const customTheme = createTheme({
 });
 
 export default function MyNavbar() {
+  const [hash] = useState(window.location.hash);
+
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={navbarTheme}>
       <Navbar color="">
         <NavbarBrand href="/">
           <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
@@ -42,15 +45,15 @@ export default function MyNavbar() {
           <NavbarToggle />
         </div>
         <NavbarCollapse>
-          <NavbarLink href="/" active>
+          <NavbarLink href="/" active={hash === ""}>
             Home
           </NavbarLink>
-          <NavbarLink href="#about">
+          <NavbarLink href="#about" active={hash === "#about"}>
             About
           </NavbarLink>
-          <NavbarLink href="#services">Services</NavbarLink>
-          <NavbarLink href="#pricing">Pricing</NavbarLink>
-          <NavbarLink href="#contact">Contact</NavbarLink>
+          <NavbarLink href="#services" active={hash === "#services"}>Services</NavbarLink>
+          <NavbarLink href="#pricing" active={hash === "#pricing"}>Pricing</NavbarLink>
+          <NavbarLink href="#contact" active={hash === "#contact"}>Contact</NavbarLink>
         </NavbarCollapse>
       </Navbar>
     </ThemeProvider>
