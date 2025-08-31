@@ -249,7 +249,7 @@ export default function Contact() {
                   </div>
                   {submitted && message === "" && (
                     <HelperText>
-                      <span className="font-medium">Oops!</span> Message is required!
+                      <span className="font-medium">Oops!</span> You must agree with the terms and conditions!
                     </HelperText>
                   )}
                 </div>

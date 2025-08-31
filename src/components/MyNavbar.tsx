@@ -45,7 +45,7 @@ export default function MyNavbar() {
           <NavbarToggle />
         </div>
         <NavbarCollapse>
-          <NavbarLink href="/" active={hash === ""}>
+          <NavbarLink href="#" active={hash === ""}>
             Home
           </NavbarLink>
           <NavbarLink href="#about" active={hash === "#about"}>
